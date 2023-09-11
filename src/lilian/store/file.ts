@@ -5,7 +5,6 @@ import { type Todo } from "../model/Todo";
 import { type IStore } from "./IStore";
 
 const STORE_FILE = config.store.filePath;
-console.log({ STORE_FILE });
 let index = 0;
 
 const getStore = async (): Promise<Todo[]> => {
