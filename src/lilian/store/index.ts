@@ -1,4 +1,4 @@
-import { config } from "../config";
+import { config, type StoreType } from "../config";
 import { fileStore } from "./file";
 import { type IStore } from "./IStore";
 import { memoryStore } from "./memory";
@@ -18,7 +18,6 @@ const unimplementedStore: IStore = {
   },
 };
 
-export type StoreType = typeof config.store.type;
 const stores: Record<StoreType, IStore> = {
   memory: memoryStore,
   file: fileStore,
@@ -27,4 +26,4 @@ const stores: Record<StoreType, IStore> = {
   mock: unimplementedStore,
 };
 
-export const getStore = (name = config.store.type): IStore => stores[name];
+export const getStore = (name = config.store.type): IStore => stores[name] ?? unimplementedStore;

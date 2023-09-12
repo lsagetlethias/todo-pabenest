@@ -25,8 +25,8 @@ export const fileStore: IStore = {
     store.push({ ...todo, id: index++ });
     await saveStore(store);
   },
-  getAll() {
-    return getStore();
+  async getAll() {
+    return await getStore();
   },
   async remove(id) {
     const store = await getStore();
